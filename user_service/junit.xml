@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="7" failures="0" errors="0" time="6.953">
+  <testsuite name="createUser" errors="0" failures="0" skipped="0" timestamp="2023-12-08T15:22:22" time="5.335" tests="1">
+    <testcase classname="createUser should throw MessageException for missing data" name="createUser should throw MessageException for missing data" time="0.013">
+    </testcase>
+  </testsuite>
+  <testsuite name="login a user" errors="0" failures="0" skipped="0" timestamp="2023-12-08T15:22:22" time="5.303" tests="2">
+    <testcase classname="login a user should return invalid data type when provided a not string type password" name="login a user should return invalid data type when provided a not string type password" time="0.012">
+    </testcase>
+    <testcase classname="login a user should return All input is required when either SSN or email is missing" name="login a user should return All input is required when either SSN or email is missing" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="deleteUser function" errors="0" failures="0" skipped="0" timestamp="2023-12-08T15:22:22" time="6.22" tests="1">
+    <testcase classname="deleteUser function should return Invalid id when wrong userID" name="deleteUser function should return Invalid id when wrong userID" time="0.016">
+    </testcase>
+  </testsuite>
+  <testsuite name="getUser function" errors="0" failures="0" skipped="0" timestamp="2023-12-08T15:22:22" time="6.283" tests="2">
+    <testcase classname="getUser function should return user if found" name="getUser function should return user if found" time="0.021">
+    </testcase>
+    <testcase classname="getUser function should return Invalid user ID when wrong userID" name="getUser function should return Invalid user ID when wrong userID" time="0.007">
+    </testcase>
+  </testsuite>
+  <testsuite name="createUser" errors="0" failures="0" skipped="0" timestamp="2023-12-08T15:22:22" time="6.321" tests="1">
+    <testcase classname="createUser should hash the password before saving the user" name="createUser should hash the password before saving the user" time="0.013">
+    </testcase>
+  </testsuite>
+</testsuites>

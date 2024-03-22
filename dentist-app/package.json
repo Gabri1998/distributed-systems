@@ -1,0 +1,35 @@
+{
+  "name": "dentist-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "@vuepic/vue-datepicker": "^7.2.2",
+    "axios": "^1.6.2",
+    "bootstrap-vue": "^2.23.1",
+    "bootstrap-vue-3": "^0.5.1",
+    "date-fns": "^2.30.0",
+    "i": "^0.3.7",
+    "mqtt": "^5.3.0",
+    "qalendar": "^3.5.1",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5",
+    "vue3-toastify": "^0.2.1",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.3.3",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "prettier": "^3.0.3",
+    "vite": "^4.4.11"
+  }
+}

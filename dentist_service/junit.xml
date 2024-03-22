@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="11" failures="0" errors="0" time="7.406">
+  <testsuite name="loginUser" errors="0" failures="0" skipped="0" timestamp="2023-12-07T20:44:15" time="5.993" tests="2">
+    <testcase classname="loginUser should return invalid data type" name="loginUser should return invalid data type" time="0.013">
+    </testcase>
+    <testcase classname="loginUser should return All input is required when either SSN or email is missing" name="loginUser should return All input is required when either SSN or email is missing" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="loginDBChecks" errors="0" failures="0" skipped="0" timestamp="2023-12-07T20:44:15" time="6.059" tests="1">
+    <testcase classname="loginDBChecks should return Invalid records" name="loginDBChecks should return Invalid records" time="0.03">
+    </testcase>
+  </testsuite>
+  <testsuite name="createDentist" errors="0" failures="0" skipped="0" timestamp="2023-12-07T20:44:15" time="6.024" tests="2">
+    <testcase classname="createDentist should throw Input missing, All data required" name="createDentist should throw Input missing, All data required" time="0.039">
+    </testcase>
+    <testcase classname="createDentist should return forbidden" name="createDentist should return forbidden" time="0.024">
+    </testcase>
+  </testsuite>
+  <testsuite name="getDentist functions" errors="0" failures="0" skipped="0" timestamp="2023-12-07T20:44:15" time="6.089" tests="2">
+    <testcase classname="getDentist functions should return dentist if found" name="getDentist functions should return dentist if found" time="0.017">
+    </testcase>
+    <testcase classname="getDentist functions should return Invalid user ID" name="getDentist functions should return Invalid user ID" time="0.017">
+    </testcase>
+  </testsuite>
+  <testsuite name="createUser" errors="0" failures="0" skipped="0" timestamp="2023-12-07T20:44:15" time="6.092" tests="2">
+    <testcase classname="createUser should return dentist alredy exists" name="createUser should return dentist alredy exists" time="0.065">
+    </testcase>
+    <testcase classname="createUser should hash the password before saving the user" name="createUser should hash the password before saving the user" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="deleteDentist" errors="0" failures="0" skipped="0" timestamp="2023-12-07T20:44:15" time="6.742" tests="2">
+    <testcase classname="deleteDentist should deleteDentist" name="deleteDentist should deleteDentist" time="0.008">
+    </testcase>
+    <testcase classname="deleteDentist should return invalid id" name="deleteDentist should return invalid id" time="0.007">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,7 @@
+[issue #]: [type], (short description)
+
+
+issue #: makes the commit visible in the issue itself
+type: bugfix, feature, chore, etc.
+short description: written in the present tense, the size of the commits are kept reasonably similar by having
+commits be small enough to be explained in the short description.

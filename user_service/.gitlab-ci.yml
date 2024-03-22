@@ -1,0 +1,22 @@
+image: node:18
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  tags:
+    - docker
+  script:
+    - rm -rf node_modules
+    - npm install
+
+test:
+  stage: test
+  tags:
+    - docker
+  before_script:
+    - npm install
+  script:
+    - npm run test:ci

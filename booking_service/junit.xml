@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="45" failures="0" errors="0" time="16.22">
+  <testsuite name="updateClinic" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:40" time="7.141" tests="3">
+    <testcase classname="updateClinic should return Input missing data, All input fields are required to be filled." name="updateClinic should return Input missing data, All input fields are required to be filled." time="0.066">
+    </testcase>
+    <testcase classname="updateClinic should return Forbidden. Only admins can perform this action." name="updateClinic should return Forbidden. Only admins can perform this action." time="0.001">
+    </testcase>
+    <testcase classname="updateClinic should return Not found. Clinic not found" name="updateClinic should return Not found. Clinic not found" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="deleteEmergencySlots" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:40" time="7.297" tests="3">
+    <testcase classname="deleteEmergencySlots should throw only dentists are allowed to perform this action" name="deleteEmergencySlots should throw only dentists are allowed to perform this action" time="0.027">
+    </testcase>
+    <testcase classname="deleteEmergencySlots should throw booked emergency slots are not allowed to be deleted" name="deleteEmergencySlots should throw booked emergency slots are not allowed to be deleted" time="0.001">
+    </testcase>
+    <testcase classname="deleteEmergencySlots should throw emergency slot does not exist" name="deleteEmergencySlots should throw emergency slot does not exist" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="updateSlot" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:40" time="11.655" tests="4">
+    <testcase classname="updateSlot should return Forbidden. Only admins can perform this action." name="updateSlot should return Forbidden. Only admins can perform this action." time="0.044">
+    </testcase>
+    <testcase classname="updateSlot should return slot not found" name="updateSlot should return slot not found" time="0.025">
+    </testcase>
+    <testcase classname="updateSlot should return Input missing data, All input fields are required to be filled." name="updateSlot should return Input missing data, All input fields are required to be filled." time="0.003">
+    </testcase>
+    <testcase classname="updateSlot should return Failed to update slot" name="updateSlot should return Failed to update slot" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="createSlot" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:40" time="11.679" tests="4">
+    <testcase classname="createSlot should throw Forbidden exception if user is not a dentist" name="createSlot should throw Forbidden exception if user is not a dentist" time="0.041">
+    </testcase>
+    <testcase classname="createSlot should throw To be able to create a slot, you have to be assigned to a clinic" name="createSlot should throw To be able to create a slot, you have to be assigned to a clinic" time="0.001">
+    </testcase>
+    <testcase classname="createSlot should throw input missing data, all data required" name="createSlot should throw input missing data, all data required" time="0.001">
+    </testcase>
+    <testcase classname="createSlot should throw slot already exists for that time" name="createSlot should throw slot already exists for that time" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="getSlots" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:40" time="11.942" tests="1">
+    <testcase classname="getSlots should throw invalid slot ID" name="getSlots should throw invalid slot ID" time="0.032">
+    </testcase>
+  </testsuite>
+  <testsuite name="getSlots" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:40" time="12.019" tests="1">
+    <testcase classname="getSlots should throw invalid slot ID" name="getSlots should throw invalid slot ID" time="0.038">
+    </testcase>
+  </testsuite>
+  <testsuite name="getClinicSlots" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:40" time="12.087" tests="1">
+    <testcase classname="getClinicSlots should throw an exception for an invalid clinic ID" name="getClinicSlots should throw an exception for an invalid clinic ID" time="0.055">
+    </testcase>
+  </testsuite>
+  <testsuite name="getClinicSlots" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:47" time="5.421" tests="2">
+    <testcase classname="getClinicSlots should retrieve slots for a valid clinic ID" name="getClinicSlots should retrieve slots for a valid clinic ID" time="0.004">
+    </testcase>
+    <testcase classname="getClinicSlots should throw an exception for an invalid clinic ID" name="getClinicSlots should throw an exception for an invalid clinic ID" time="0.023">
+    </testcase>
+  </testsuite>
+  <testsuite name="unbookSlot" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:47" time="5.617" tests="6">
+    <testcase classname="unbookSlot should throw slot_id needs to be specified" name="unbookSlot should throw slot_id needs to be specified" time="0.033">
+    </testcase>
+    <testcase classname="unbookSlot should throw valid patient/slot ID needs to be specified" name="unbookSlot should throw valid patient/slot ID needs to be specified" time="0.002">
+    </testcase>
+    <testcase classname="unbookSlot should throw slot not found for update" name="unbookSlot should throw slot not found for update" time="0.002">
+    </testcase>
+    <testcase classname="unbookSlot should throw forbidden action, slot belong to another dentist" name="unbookSlot should throw forbidden action, slot belong to another dentist" time="0.001">
+    </testcase>
+    <testcase classname="unbookSlot should throw forbidden action upon request of an another patient" name="unbookSlot should throw forbidden action upon request of an another patient" time="0.005">
+    </testcase>
+    <testcase classname="unbookSlot should throw forbidden action upon request of admin" name="unbookSlot should throw forbidden action upon request of admin" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="createEmergencySlots" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:52" time="1.252" tests="4">
+    <testcase classname="createEmergencySlots should throw only dentists are allowed to perform this action" name="createEmergencySlots should throw only dentists are allowed to perform this action" time="0.036">
+    </testcase>
+    <testcase classname="createEmergencySlots should throw input missing data. All data required" name="createEmergencySlots should throw input missing data. All data required" time="0.001">
+    </testcase>
+    <testcase classname="createEmergencySlots should throw invalid date format for start or end" name="createEmergencySlots should throw invalid date format for start or end" time="0.001">
+    </testcase>
+    <testcase classname="createEmergencySlots should throw the following slot already exists" name="createEmergencySlots should throw the following slot already exists" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="getClinic" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:52" time="1.074" tests="1">
+    <testcase classname="getClinic should return Not found. Clinic does not exists." name="getClinic should return Not found. Clinic does not exists." time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="getScore" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:52" time="1.255" tests="3">
+    <testcase classname="getScore should throw dentists are not allowed to book for emergency" name="getScore should throw dentists are not allowed to book for emergency" time="0.029">
+    </testcase>
+    <testcase classname="getScore should throw Emergency score should be between 0 and 63.4" name="getScore should throw Emergency score should be between 0 and 63.4" time="0.035">
+    </testcase>
+    <testcase classname="getScore should throw you are only allowed to submit the form once a day" name="getScore should throw you are only allowed to submit the form once a day" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="createCLinic" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:53" time="0.922" tests="2">
+    <testcase classname="createCLinic should throw Input missing, All input fields are required to be filled." name="createCLinic should throw Input missing, All input fields are required to be filled." time="0.006">
+    </testcase>
+    <testcase classname="createCLinic should throw Clinic already exists" name="createCLinic should throw Clinic already exists" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="bookSlot" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:52" time="2.017" tests="2">
+    <testcase classname="bookSlot should throw missing input needs to be specified" name="bookSlot should throw missing input needs to be specified" time="0.104">
+    </testcase>
+    <testcase classname="bookSlot should throw valid patient/slot ID needs to be specified" name="bookSlot should throw valid patient/slot ID needs to be specified" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="deleteAllClinics" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:53" time="1.13" tests="1">
+    <testcase classname="deleteAllClinics should throw MessageException with code 500 for database error" name="deleteAllClinics should throw MessageException with code 500 for database error" time="0.006">
+    </testcase>
+  </testsuite>
+  <testsuite name="getAllClinic" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:53" time="1.157" tests="2">
+    <testcase classname="getAllClinic should return all clinics when clinics are found" name="getAllClinic should return all clinics when clinics are found" time="0.004">
+    </testcase>
+    <testcase classname="getAllClinic should throw Failed to find clinics" name="getAllClinic should throw Failed to find clinics" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="deleteClinic" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:53" time="1.018" tests="2">
+    <testcase classname="deleteClinic should return Not found. Clinic does not exist." name="deleteClinic should return Not found. Clinic does not exist." time="0.004">
+    </testcase>
+    <testcase classname="deleteClinic should delete the clinic if all conditions are met." name="deleteClinic should delete the clinic if all conditions are met." time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="deleteSlot" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:52" time="2.93" tests="1">
+    <testcase classname="deleteSlot should throw invalid id" name="deleteSlot should throw invalid id" time="0.023">
+    </testcase>
+  </testsuite>
+  <testsuite name="deleteAllSlots" errors="0" failures="0" skipped="0" timestamp="2024-01-09T07:11:53" time="2.179" tests="2">
+    <testcase classname="deleteAllSlots should throw Forbidden" name="deleteAllSlots should throw Forbidden" time="0.014">
+    </testcase>
+    <testcase classname="deleteAllSlots should throw Database already empty" name="deleteAllSlots should throw Database already empty" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

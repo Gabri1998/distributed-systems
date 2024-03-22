@@ -1,0 +1,29 @@
+# To configure this template,
+
+# you need to write the following command in the root folder:
+
+# git config commit.template .gitmessage
+
+# Follow English grammar and describe what has been done for the commit
+
+# ---------------------------------------------------------------------
+
+# Subject line
+
+# Use imperative case, 50 characters or less,
+
+# and do NOT end the subject with a period
+
+# template: [empty space]#[Issue number] [Rest of subject]
+
+# Write the subject below:
+
+# Body message
+
+# Wrap at 70 chars. ################################ which is here:
+
+# Explain what and why the changes were made
+
+# Don't explain how the changes were made
+
+# Write the body below:

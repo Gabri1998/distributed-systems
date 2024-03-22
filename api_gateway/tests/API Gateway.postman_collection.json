@@ -1,0 +1,1407 @@
+{
+	"info": {
+		"_postman_id": "c3a2107e-8323-4a51-ad94-61d79e389ebe",
+		"name": "API Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31171813"
+	},
+	"item": [
+		{
+			"name": "Dentists",
+			"item": [
+				{
+					"name": "Dentist Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"/* pm.environment.set(\"Auth-Token\", pm.response.json().token); */\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"email\":\"gabri@gmail.com\" ,\r\n        \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/dentists/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Dentist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTc5MDdlYWJhMTVhMWQ5ODlmNTM3IiwiU1NOIjoiMzI2NTk4IiwiZW1haWwiOiJzYW1AZ21haWwuY29tIiwidXNlclR5cGUiOiJhZG1pbiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwMTg0Nzc4NCwiZXhwIjoxNzAxODU4NTg0fQ.vu9QhEc5X2o17RBGOZFL5d17v2uhPtz_0rACZtz8iKI\""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"firstName\":\"Ahmed\" ,\r\n     \"lastName\":\"Gabri\" ,\r\n      \"SSN\":\"Gabri\" ,\r\n       \"email\":\"gabri@gmail.com\" ,\r\n        \"password\":\"12345\",\r\n        \"admin\":false,\r\n        \"clinic_id\":\"6584396c02c86ac5025b5c5f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/dentists"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"sam\" ,\r\n     \"lastName\":\"sam\" ,\r\n      \"SSN\":\"326598\" ,\r\n       \"email\":\"sam@gmail.com\" ,\r\n        \"password\":\"12345\",\r\n        \"admin\":true\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/dentists"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Dentists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDc2NDAzMCwiZXhwIjoxNzA0Nzc0ODMwfQ.O4tp6wVLNQ4KArBxhGi74dE3mtkI85o6HQP2Ym_ulSQ"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/dentists"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all a Clinic Dentists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDc0NjI4NSwiZXhwIjoxNzA0NzU3MDg1fQ.PDr-lHg-iihA0d3PKIjKa-yIgD1NDeJ5WGETqNHrtP0"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/dentists/clinic/65857713e2cb65270f205f95"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Dentist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTc5MDdlYWJhMTVhMWQ5ODlmNTM3IiwiU1NOIjoiMzI2NTk4IiwiZW1haWwiOiJzYW1AZ21haWwuY29tIiwidXNlclR5cGUiOiJkZW50aXN0IiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzAxNzkwMTc1LCJleHAiOjE3MDE4MDA5NzV9.XaORFPPvAqrSIhFkeAF5RideYSyrknXkhVOg7NS2xQE"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n   \r\n         \"firstName\":\"nani\" ,\r\n     \"lastName\":\"nani\" ,\r\n      \"SSN\":\"235689\" ,\r\n       \"email\":\"bub@gmail.com\" ,\r\n        \"password\":\"12345\",\r\n        \"admin\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/dentists/656f433ad6a4390e47ca84ac"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Dentist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTc5MDdlYWJhMTVhMWQ5ODlmNTM3IiwiU1NOIjoiMzI2NTk4IiwiZW1haWwiOiJzYW1AZ21haWwuY29tIiwidXNlclR5cGUiOiJkZW50aXN0IiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzAxNzkwMTc1LCJleHAiOjE3MDE4MDA5NzV9.XaORFPPvAqrSIhFkeAF5RideYSyrknXkhVOg7NS2xQE"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/dentists/656f433ad6a4390e47ca84ac"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all Dentists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTc0ZGVjMThhOTA1Mzc5YzhlNzc1IiwiU1NOIjoiMzI2NTk4IiwiZW1haWwiOiJzYW1AZ21haWwuY29tIiwidXNlclR5cGUiOiJkZW50aXN0IiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzAxNDc1NTc0LCJleHAiOjE3MDE0ODYzNzR9.xew1PGTgv34Q_8jcFxM63CoFJO6ER8c1jhdvi9-GK-c"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/dentists"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"Auth-Token\", pm.response.json().token);\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n \"SSN\":\"\" ,\r\n       \"email\":\"khalid@gmail.com\" ,\r\n        \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"firstName\":\"Kalid\" ,\r\n     \"lastName\":\"Khalid\" ,\r\n      \"SSN\":\"Khalid\" ,\r\n       \"email\":\"khalid@gmail.com\" ,\r\n        \"password\":\"12345\",\r\n        \"theme\":\"dark\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU5Y2QyODBiM2Q3MDk4MDE2NTBhNDczIiwiU1NOIjoiS2hhbGlkIiwiZW1haWwiOiJraGFsaWRAZ21haWwuY29tIiwidXNlclR5cGUiOiJwYXRpZW50IiwiZmlyc3ROYW1lIjoiS2FsaWQiLCJsYXN0TmFtZSI6IktoYWxpZCIsImlhdCI6MTcwNDc3NjMyNSwiZXhwIjoxNzA0Nzg3MTI1fQ.8pHD84JErHXblK-v57rxnjgWD7mz-SBX-rlisNzXLEA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDc2NDAzMCwiZXhwIjoxNzA0Nzc0ODMwfQ.O4tp6wVLNQ4KArBxhGi74dE3mtkI85o6HQP2Ym_ulSQ"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users/65993a03da702ec29212a69a"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTZjYTk4NjUwYTdmMzc1NmY2NTYyIiwiU1NOIjoiMTIzNDU2NyIsImVtYWlsIjoiMTIzNDVAZ21haWwuY29tIiwidXNlclR5cGUiOiJ1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTcwMTQ3MzUxNCwiZXhwIjoxNzAxNDg0MzE0fQ.J-gLN0tKmmmEfVD0-mOnP1m-Og7iXT7iMdlhIDF0dno"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"firstName\":\"nani\" ,\r\n     \"lastName\":\"nani\" ,\r\n      \"SSN\":\"2536\" ,\r\n       \"email\":\"dani@gmail.com\" ,\r\n        \"password\":\"12345\",\r\n        \"admin\":false,\r\n        \"theme\":\"dark\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users/656a6ca98650a7f3756f6562"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU5Y2Q3YTFiM2Q3MDk4MDE2NTBhNGFjIiwiU1NOIjoiS2hhbGlkIiwiZW1haWwiOiJraGFsaWRAZ21haWwuY29tIiwidXNlclR5cGUiOiJwYXRpZW50IiwiZmlyc3ROYW1lIjoiS2FsaWQiLCJsYXN0TmFtZSI6IktoYWxpZCIsImlhdCI6MTcwNDc3NzYzNywiZXhwIjoxNzA0Nzg4NDM3fQ.aWBi-u3n1mMDNDXZGAbB7qwmUtzdgELOMzSQZo1tbj8"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users/659cd7a1b3d709801650a4ac"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTc5MDdlYWJhMTVhMWQ5ODlmNTM3IiwiU1NOIjoiMzI2NTk4IiwiZW1haWwiOiJzYW1AZ21haWwuY29tIiwidXNlclR5cGUiOiJhZG1pbiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwMjA0MTYwNCwiZXhwIjoxNzAyMDUyNDA0fQ.EHJ_INoT4CJ4072Y3333qIYDHhTgvGoNY2Vds0fW0bI"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU5Y2MxZWZiM2Q3MDk4MDE2NTBhNDE3IiwiU1NOIjoiS2hhbGlkIiwiZW1haWwiOiJraGFsaWRAZ21haWwuY29tIiwidXNlclR5cGUiOiJwYXRpZW50IiwiZmlyc3ROYW1lIjoiS2FsaWQiLCJsYXN0TmFtZSI6IktoYWxpZCIsImlhdCI6MTcwNDc3MjExNCwiZXhwIjoxNzA0NzgyOTE0fQ.3JRYUnrAk5RAowQfgvcX9G85JNsj5nzCmIx1nb2a_Mw"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/slots/659ca9c4b54ed8ad85c8f2c6/book"
+					},
+					"response": []
+				},
+				{
+					"name": "UnBook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU5Y2MxZWZiM2Q3MDk4MDE2NTBhNDE3IiwiU1NOIjoiS2hhbGlkIiwiZW1haWwiOiJraGFsaWRAZ21haWwuY29tIiwidXNlclR5cGUiOiJwYXRpZW50IiwiZmlyc3ROYW1lIjoiS2FsaWQiLCJsYXN0TmFtZSI6IktoYWxpZCIsImlhdCI6MTcwNDc3MjExNCwiZXhwIjoxNzA0NzgyOTE0fQ.3JRYUnrAk5RAowQfgvcX9G85JNsj5nzCmIx1nb2a_Mw"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/slots/659ca9c4b54ed8ad85c8f2c6/unbook"
+					},
+					"response": []
+				},
+				{
+					"name": "UnBook patient slots",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU5Y2QyODBiM2Q3MDk4MDE2NTBhNDczIiwiU1NOIjoiS2hhbGlkIiwiZW1haWwiOiJraGFsaWRAZ21haWwuY29tIiwidXNlclR5cGUiOiJwYXRpZW50IiwiZmlyc3ROYW1lIjoiS2FsaWQiLCJsYXN0TmFtZSI6IktoYWxpZCIsImlhdCI6MTcwNDc3NjMyNSwiZXhwIjoxNzA0Nzg3MTI1fQ.8pHD84JErHXblK-v57rxnjgWD7mz-SBX-rlisNzXLEA"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/slots/patient/659cd591b3d709801650a499"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clinic",
+			"item": [
+				{
+					"name": "Create a Clinic",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTc5MDdlYWJhMTVhMWQ5ODlmNTM3IiwiU1NOIjoiMzI2NTk4IiwiZW1haWwiOiJzYW1AZ21haWwuY29tIiwidXNlclR5cGUiOiJhZG1pbiIsImlzQWRtaW4iOnRydWUsImZpcnN0TmFtZSI6InNhbSIsImxhc3ROYW1lIjoic2FtIiwiaWF0IjoxNzAyNDIwODA0LCJleHAiOjE3MDI0MzE2MDR9.Tqm7hK4mbnQHu3g7FbHnnZH8l0pDIA5RXgQYteDKRNU"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"clinicName\":\"tooth fairy Hága\",\r\n\"address\":\"västra hamnen 32452 malmö\"\r\n\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/clinics"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Clinic",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDc0MDc3NiwiZXhwIjoxNzA0NzUxNTc2fQ.9ErnoCgj9x6XvIayNh9-C9l_48Au4BLwVvQ3_fmD_yk"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/clinics/6584396c02c86ac5025b5c5f"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Clinics",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU5YWQ5ZjdjZGQ2N2E2NmY1MDE1N2EzIiwiU1NOIjoiR2FicmkiLCJlbWFpbCI6ImdhYnJpQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoiZGVudGlzdCIsImlzQWRtaW4iOmZhbHNlLCJjbGluaWNfaWQiOiI2NTg0Mzk2YzAyYzg2YWM1MDI1YjVjNWYiLCJmaXJzdE5hbWUiOiJBaG1lZCIsImxhc3ROYW1lIjoiR2FicmkiLCJpYXQiOjE3MDQ2Nzc5MzYsImV4cCI6MTcwNDY4ODczNn0.w3PTcJWJJX5igmmMi4GxqrpI3SXXyvJFD5Op6AnXCsA"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/clinics"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Clinic",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTc5MDdlYWJhMTVhMWQ5ODlmNTM3IiwiU1NOIjoiMzI2NTk4IiwiZW1haWwiOiJzYW1AZ21haWwuY29tIiwidXNlclR5cGUiOiJkZW50aXN0IiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzAxNzkwMTc1LCJleHAiOjE3MDE4MDA5NzV9.XaORFPPvAqrSIhFkeAF5RideYSyrknXkhVOg7NS2xQE"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"clinicName\":\"tooth fairy nordstan\",\r\n\"address\":\"brunnsparken 32452 gbg\",\r\n \"workingDentists\":[\"\"]\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/clinics/656f4c6e32a019a659552e22"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Clinic",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTc5MDdlYWJhMTVhMWQ5ODlmNTM3IiwiU1NOIjoiMzI2NTk4IiwiZW1haWwiOiJzYW1AZ21haWwuY29tIiwidXNlclR5cGUiOiJkZW50aXN0IiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzAxNzkwMTc1LCJleHAiOjE3MDE4MDA5NzV9.XaORFPPvAqrSIhFkeAF5RideYSyrknXkhVOg7NS2xQE"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/clinics/656f462255378c2c10c695ec"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all Clinics",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2YTc5MDdlYWJhMTVhMWQ5ODlmNTM3IiwiU1NOIjoiMzI2NTk4IiwiZW1haWwiOiJzYW1AZ21haWwuY29tIiwidXNlclR5cGUiOiJhZG1pbiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwMTg0Nzc4NCwiZXhwIjoxNzAxODU4NTg0fQ.vu9QhEc5X2o17RBGOZFL5d17v2uhPtz_0rACZtz8iKI"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/clinics"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Slots",
+			"item": [
+				{
+					"name": "Create  Slots",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU5YWQ5ZjdjZGQ2N2E2NmY1MDE1N2EzIiwiU1NOIjoiR2FicmkiLCJlbWFpbCI6ImdhYnJpQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoiZGVudGlzdCIsImlzQWRtaW4iOmZhbHNlLCJjbGluaWNfaWQiOiI2NTg0Mzk2YzAyYzg2YWM1MDI1YjVjNWYiLCJmaXJzdE5hbWUiOiJBaG1lZCIsImxhc3ROYW1lIjoiR2FicmkiLCJpYXQiOjE3MDQ2NTcwMzEsImV4cCI6MTcwNDY2NzgzMX0.87LlzPBdcMGtE0f4hAvQ2sQOctLTAt0M1aZ1SrEfIW8"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"start\":\"2024-01-05T15:00:00\",\r\n\"end\":\"2024-01-05T15:30:00\",\r\n\"duration\":30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/slots/many"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  a Slot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2Zjc3ZDQ0NjQ4ZWIxNGEzOWQ3YmJlIiwiU1NOIjoibG9sbyIsImVtYWlsIjoibG9sb0BnbWFpbC5jb20iLCJ1c2VyVHlwZSI6ImRlbnRpc3QiLCJpc0FkbWluIjpmYWxzZSwiY2xpbmljX2lkIjoiNjU2ZjZkNzNkMTk1NjIxY2NmMDk1NTI2IiwiZmlyc3ROYW1lIjoibG9sbyIsImxhc3ROYW1lIjoibG9sbyIsImlhdCI6MTcwNDM4OTc1NywiZXhwIjoxNzA0NDAwNTU3fQ.9i8283Oge5aMoKdM1_-50ntAdz7k-zYPx54Pvk3IQU8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/slots/656f515473dec9a87102950b"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  slots for a clinic",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDc1OTI0OSwiZXhwIjoxNzA0NzcwMDQ5fQ.GstfNXRp0HkHyFXAmIXbH_B389R1fXTDBc2FKoEi7lY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/slots/clinic/65857713e2cb65270f205f95"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  slots for a dentist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDc1OTI0OSwiZXhwIjoxNzA0NzcwMDQ5fQ.GstfNXRp0HkHyFXAmIXbH_B389R1fXTDBc2FKoEi7lY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/slots/dentist/659ad9f7cdd67a66f50157a3"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  all Slots",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU5YWQ5ZjdjZGQ2N2E2NmY1MDE1N2EzIiwiU1NOIjoiR2FicmkiLCJlbWFpbCI6ImdhYnJpQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoiZGVudGlzdCIsImlzQWRtaW4iOmZhbHNlLCJjbGluaWNfaWQiOiI2NTg0Mzk2YzAyYzg2YWM1MDI1YjVjNWYiLCJmaXJzdE5hbWUiOiJBaG1lZCIsImxhc3ROYW1lIjoiR2FicmkiLCJpYXQiOjE3MDQ3NjY1MzYsImV4cCI6MTcwNDc3NzMzNn0.WYpUxAqH9OLI68tH7etiLkvAoZEG71JoKUl9tw013EI"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/slots"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Patient booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDc1OTI0OSwiZXhwIjoxNzA0NzcwMDQ5fQ.GstfNXRp0HkHyFXAmIXbH_B389R1fXTDBc2FKoEi7lY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/slots/patient/658dc10e5959cfa3bf55d842"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Slot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2ZjQ2NjdkNzY2NWM0YTE4YzA0MjE0IiwiU1NOIjoiMTQxNDE0IiwiZW1haWwiOiJ0dXR1QGdtYWlsLmNvbSIsInVzZXJUeXBlIjoiZGVudGlzdCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDE3OTEzNTQsImV4cCI6MTcwMTgwMjE1NH0.bEE66zEG6xtV2CMEjOTrgm3F-b9DqTacVDann4S8474"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"date\":\"2024-06-29T14:45:15\",\r\n\"available\":false,\r\n\"booked\":true,\r\n\"clinic_id\":\"656f4c6e32a019a659552e22\",\r\n\"dentistId\":\"656f4667d7665c4a18c04214\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/slots/656f6155983a5aec6668c314"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Slot",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDc2NDAzMCwiZXhwIjoxNzA0Nzc0ODMwfQ.O4tp6wVLNQ4KArBxhGi74dE3mtkI85o6HQP2Ym_ulSQ"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/slots/659ca9c4b54ed8ad85c8f2c6"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all Slots",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU2Zjc3ZDQ0NjQ4ZWIxNGEzOWQ3YmJlIiwiU1NOIjoibG9sbyIsImVtYWlsIjoibG9sb0BnbWFpbC5jb20iLCJ1c2VyVHlwZSI6ImRlbnRpc3QiLCJpc0FkbWluIjpmYWxzZSwiY2xpbmljX2lkIjoiNjU2ZjZkNzNkMTk1NjIxY2NmMDk1NTI2IiwiZmlyc3ROYW1lIjoibG9sbyIsImxhc3ROYW1lIjoibG9sbyIsImlhdCI6MTcwMjQ5NTg3NywiZXhwIjoxNzAyNTA2Njc3fQ.y63rVnPRvHM38HvDlzX0h_sxGuDfiQ8TLjMU7GFhlnQ"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/slots"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "Get  Notification",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDc1OTI0OSwiZXhwIjoxNzA0NzcwMDQ5fQ.GstfNXRp0HkHyFXAmIXbH_B389R1fXTDBc2FKoEi7lY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/notification?offset=0&limit=12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"notification"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/status"
+			},
+			"response": []
+		},
+		{
+			"name": "Get send",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":\"658dc10e5959cfa3bf55d842\",\r\n    \"message\":\"hello beckend\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/send-message"
+			},
+			"response": []
+		},
+		{
+			"name": "Get me",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjU4ZGMxMGU1OTU5Y2ZhM2JmNTVkODQyIiwiU1NOIjoiZ2IiLCJlbWFpbCI6ImdiQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoicGF0aWVudCIsImZpcnN0TmFtZSI6ImdiIiwibGFzdE5hbWUiOiJnYiIsImlhdCI6MTcwNDY1NzQ4OSwiZXhwIjoxNzA0NjY4Mjg5fQ.ixvu1xx25ZClHNGRBJgb2BSzB8CpbHB10p5h7d6G104"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/me"
+			},
+			"response": []
+		}
+	]
+}
